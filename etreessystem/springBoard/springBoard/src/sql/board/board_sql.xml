@@ -81,6 +81,7 @@
     	 WHERE BOARD_TYPE = '1'
     	   AND BOARD_NUM = #{boardNum}
     </delete>
+<<<<<<< HEAD
     
     <update id="boardUpdate" parameterType = "com.spring.board.vo.BoardVo">
 		UPDATE BOARD
@@ -91,4 +92,6 @@
 		 WHERE BOARD_TYPE = '1'
 		   AND BOARD_NUM = #{boardNum}
     </update>
+=======
+>>>>>>> a7c3a38 (feat: board 삭제 추가)
 </mapper>

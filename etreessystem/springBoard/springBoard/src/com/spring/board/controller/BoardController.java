@@ -118,6 +118,7 @@ public class BoardController {
 		return callbackMsg;
 	}
 	
+<<<<<<< HEAD
 	
 	@RequestMapping(value = "/board/boardUpdateAction.do", method = RequestMethod.PUT)
 	@ResponseBody
@@ -135,4 +136,6 @@ public class BoardController {
 		
 		return callbackMsg;
 	}
+=======
+>>>>>>> a7c3a38 (feat: board 삭제 추가)
 }

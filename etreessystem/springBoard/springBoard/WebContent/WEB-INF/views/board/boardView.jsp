@@ -10,12 +10,25 @@
 <script type="text/javascript">
 
 	$j(document).ready(function() {
+<<<<<<< HEAD
 		$j("#boardDelete").on("click", function(){	
 			var pathVariable = getPathVariable();
 			var param = JSON.stringify(pathVariable);
 			var pageNo = getParameterByName('pageNo');
 			//console.log(param);
 			//console.log(pageNo);
+=======
+		
+		$j("#boardDelete").on("click", function(){
+			
+			var pathVariable = getPathVariable();
+			var param = JSON.stringify(pathVariable);
+			
+			console.log(param);
+			
+			var pageNo = getParameterByName('pageNo');
+			console.log(pageNo);
+>>>>>>> a7c3a38 (feat: board ì‚­ì œ ì¶”ê°€)
 			
 			$j.ajax({
 				url: "/board/boardDeleteAction.do",
@@ -33,6 +46,7 @@
 				}
 			});
 		});
+<<<<<<< HEAD
 		
 		$j("#boardUpdateMode").on("click", function() {
 		    $j("#boardTitle").prop("disabled", false).focus();
@@ -75,6 +89,10 @@
 	});
 	
 	
+=======
+	});
+	
+>>>>>>> a7c3a38 (feat: board ì‚­ì œ ì¶”ê°€)
 	function getParameterByName(name) {
         name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
         var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"), 
@@ -120,10 +138,14 @@
 	<tr>
 		<td align="right">
 			<a href="/board/boardList.do">List</a>
+<<<<<<< HEAD
         	<input id="boardUpdateMode" type="button" value="¼öÁ¤">
         	<input id="boardUpdate" type="button" value="ÀúÀå" style="display:none;">
         	<input id="boardDelete" type="button" value="»èÁ¦">
 			
+=======
+			<input id = "boardDelete" type="button" value = "»èÁ¦">
+>>>>>>> a7c3a38 (feat: board ì‚­ì œ ì¶”ê°€)
 		</td>
 	</tr>
 </table>	

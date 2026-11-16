@@ -57,6 +57,7 @@ public class boardServiceImpl implements boardService{
 		return boardDao.boardDelete(boardVo);
 	}
 	
+<<<<<<< HEAD
 	@Override
 	public int boardUpdate(BoardVo boardVo) throws Exception {
 		
@@ -67,4 +68,6 @@ public class boardServiceImpl implements boardService{
 		
 		return boardDao.boardUpdate(boardVo);
 	}
+=======
+>>>>>>> a7c3a38 (feat: board 삭제 추가)
 }

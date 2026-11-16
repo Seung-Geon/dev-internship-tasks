@@ -55,9 +55,12 @@ public class BoardDaoImpl implements BoardDao{
 	public int boardDelete(BoardVo boardVo) throws Exception {
 		return sqlSession.delete("board.boardDelete", boardVo);
 	}
+<<<<<<< HEAD
 	
 	@Override
 	public int boardUpdate(BoardVo boardVo) throws Exception {
 		return sqlSession.update("board.boardUpdate", boardVo);
 	}
+=======
+>>>>>>> a7c3a38 (feat: board 삭제 추가)
 }
