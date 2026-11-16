@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -94,6 +95,26 @@ public class BoardController {
 		
 		System.out.println("callbackMsg::"+callbackMsg);
 		
+		return callbackMsg;
+	}
+	
+	@RequestMapping(value = "/board/boardDeleteAction.do", method = RequestMethod.DELETE)
+	@ResponseBody
+	public String boardDeleteAction(Locale locale, @RequestBody BoardVo boardVo) throws Exception {
+		
+		HashMap<String, String> result = new HashMap<String, String>();
+		CommonUtil commonUtil = new CommonUtil();
+		
+		System.out.println("type: "+boardVo.getBoardType());
+		System.out.println("num: " + boardVo.getBoardNum());
+		
+		int resultCnt = boardService.boardDelete(boardVo);
+		
+		result.put("success", (resultCnt > 0)?"Y":"N");
+		String callbackMsg = commonUtil.getJsonCallBackString(" ",result);
+		
+		System.out.println("callbackMsg::"+callbackMsg);
+			
 		return callbackMsg;
 	}
 	

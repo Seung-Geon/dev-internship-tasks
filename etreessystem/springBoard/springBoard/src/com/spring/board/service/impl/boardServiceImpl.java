@@ -52,4 +52,9 @@ public class boardServiceImpl implements boardService{
 		return boardDao.boardInsert(boardVo);
 	}
 	
+	@Override
+	public int boardDelete(BoardVo boardVo) throws Exception {
+		return boardDao.boardDelete(boardVo);
+	}
+	
 }

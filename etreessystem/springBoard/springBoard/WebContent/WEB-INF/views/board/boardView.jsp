@@ -7,8 +7,58 @@
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>boardView</title>
 </head>
+<script type="text/javascript">
+
+	$j(document).ready(function() {
+		
+		$j("#boardDelete").on("click", function(){
+			
+			var pathVariable = getPathVariable();
+			var param = JSON.stringify(pathVariable);
+			
+			console.log(param);
+			
+			var pageNo = getParameterByName('pageNo');
+			console.log(pageNo);
+			
+			$j.ajax({
+				url: "/board/boardDeleteAction.do",
+				dataType: "json",
+				type: "DELETE",
+				data: param,
+				contentType: "application/json",
+				success: function(data,textStatus, jqXHR) {
+					alert("삭제완료");
+					alert("메시지: " + data.success);
+					location.href = "/board/boardList.do?pageNo=" + pageNo;
+				},
+				error: function (jqXHR, textStatus, errorThrown) {
+					alert("실패");
+				}
+			});
+		});
+	});
+	
+	function getParameterByName(name) {
+        name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+        var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"), 
+        						results = regex.exec(location.search);
+        return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+    }
+	
+	function getPathVariable() {
+		var path = $j(location).attr('pathname');
+		var pathArr = path.split('/')
+		
+		var pathVariable = {"boardType": pathArr[2], "boardNum": parseInt(pathArr[3])};
+		
+		return pathVariable
+	}
+	
+</script>
 <body>
 <table align="center">
+
 	<tr>
 		<td>
 			<table border ="1">
@@ -41,6 +91,7 @@
 	<tr>
 		<td align="right">
 			<a href="/board/boardList.do">List</a>
+			<input id = "boardDelete" type="button" value = "삭제">
 		</td>
 	</tr>
 </table>	
