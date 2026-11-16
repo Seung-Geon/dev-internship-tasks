@@ -51,5 +51,13 @@ public class BoardDaoImpl implements BoardDao{
 		return sqlSession.insert("board.boardInsert", boardVo);
 	}
 	
+	@Override
+	public int boardDelete(BoardVo boardVo) throws Exception {
+		return sqlSession.delete("board.boardDelete", boardVo);
+	}
 	
+	@Override
+	public int boardUpdate(BoardVo boardVo) throws Exception {
+		return sqlSession.update("board.boardUpdate", boardVo);
+	}
 }

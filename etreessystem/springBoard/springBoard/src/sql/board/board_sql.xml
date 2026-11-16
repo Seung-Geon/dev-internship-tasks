@@ -64,7 +64,7 @@
         )
         VALUES
         ('1'
-        ,(SELECT TO_NUMBER(MAX(BOARD_NUM)+1)
+        ,(SELECT TO_NUMBER(NVL(MAX(BOARD_NUM), 0)+1)
 	    FROM BOARD
 	    WHERE BOARD_TYPE = '1')
         ,#{boardTitle}
@@ -75,4 +75,20 @@
         ,TO_CHAR(SYSDATE)
         )
     </select>
+    
+    <delete id="boardDelete" parameterType = "com.spring.board.vo.BoardVo">
+    	DELETE FROM BOARD
+    	 WHERE BOARD_TYPE = '1'
+    	   AND BOARD_NUM = #{boardNum}
+    </delete>
+    
+    <update id="boardUpdate" parameterType = "com.spring.board.vo.BoardVo">
+		UPDATE BOARD
+		   SET BOARD_Title = #{boardTitle},
+		       BOARD_COMMENT = #{boardComment},
+		       MODIFIER = 'SYSTEM',
+		       MODIFIED_TIME = TO_CHAR(SYSDATE)
+		 WHERE BOARD_TYPE = '1'
+		   AND BOARD_NUM = #{boardNum}
+    </update>
 </mapper>
