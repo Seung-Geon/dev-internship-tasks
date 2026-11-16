@@ -1,0 +1,45 @@
+[교육안내 - 자가진단 안내]
+http://www.seoulcoop.net/business/support06.html
+http://www.seoulcoop.net/business/support06_2.html
+http://www.seoulcoop.net/business/support06_3.html
+http://www.seoulcoop.net/business/support06_4.html
+
+[상담안내 - 업무지침]
+http://www.seoulcoop.net/counsel/work_list.html
+http://www.seoulcoop.net/counsel/work_result.html
+http://www.seoulcoop.net/counsel/work_view.html
+
+
+
+[마이페이지]
+http://www.seoulcoop.net/member/main_self.php
+
+[자가 진단 내역 목록]
+http://www.seoulcoop.net/member/self_list.php
+http://www.seoulcoop.net/member/self_view.php
+
+
+
+[관리자]
+
+{자가진단}
+- 자가진단 안내
+http://www.seoulcoop.net/master/contents/notice01.php?tbl_name=self01
+- 자가진단 항목입력
+http://www.seoulcoop.net/master/contents/notice01.php?tbl_name=self02
+- 자가진단 항목관리
+http://www.seoulcoop.net/master/contents/notice01.php?tbl_name=self03
+- 자가진단 결과관리
+http://www.seoulcoop.net/master/contents/notice01.php?tbl_name=self04
+- 기타코드관리
+
+{업무지침}
+http://www.seoulcoop.net/master/contents/notice01.php?tbl_name=self05
+- 업무지침
+http://www.seoulcoop.net/master/contents/notice01.php?tbl_name=work01
+- 지침관리
+http://www.seoulcoop.net/master/contents/notice01.php?tbl_name=work02
+
+
+id : 15445077
+pw : 15445077
