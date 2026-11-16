@@ -11,6 +11,7 @@
 
 	$j(document).ready(function() {
 <<<<<<< HEAD
+<<<<<<< HEAD
 		$j("#boardDelete").on("click", function(){	
 			var pathVariable = getPathVariable();
 			var param = JSON.stringify(pathVariable);
@@ -21,14 +22,19 @@
 		
 		$j("#boardDelete").on("click", function(){
 			
+=======
+		$j("#boardDelete").on("click", function(){	
+>>>>>>> ca3f297 (feat: board 수정 기능 추가)
 			var pathVariable = getPathVariable();
 			var param = JSON.stringify(pathVariable);
-			
-			console.log(param);
-			
 			var pageNo = getParameterByName('pageNo');
+<<<<<<< HEAD
 			console.log(pageNo);
 >>>>>>> a7c3a38 (feat: board 삭제 추가)
+=======
+			//console.log(param);
+			//console.log(pageNo);
+>>>>>>> ca3f297 (feat: board 수정 기능 추가)
 			
 			$j.ajax({
 				url: "/board/boardDeleteAction.do",
@@ -47,6 +53,9 @@
 			});
 		});
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> ca3f297 (feat: board 수정 기능 추가)
 		
 		$j("#boardUpdateMode").on("click", function() {
 		    $j("#boardTitle").prop("disabled", false).focus();
@@ -89,10 +98,13 @@
 	});
 	
 	
+<<<<<<< HEAD
 =======
 	});
 	
 >>>>>>> a7c3a38 (feat: board 삭제 추가)
+=======
+>>>>>>> ca3f297 (feat: board 수정 기능 추가)
 	function getParameterByName(name) {
         name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
         var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"), 
@@ -139,13 +151,19 @@
 		<td align="right">
 			<a href="/board/boardList.do">List</a>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> ca3f297 (feat: board 수정 기능 추가)
         	<input id="boardUpdateMode" type="button" value="����">
         	<input id="boardUpdate" type="button" value="����" style="display:none;">
         	<input id="boardDelete" type="button" value="����">
 			
+<<<<<<< HEAD
 =======
 			<input id = "boardDelete" type="button" value = "����">
 >>>>>>> a7c3a38 (feat: board 삭제 추가)
+=======
+>>>>>>> ca3f297 (feat: board 수정 기능 추가)
 		</td>
 	</tr>
 </table>	

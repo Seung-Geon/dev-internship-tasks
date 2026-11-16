@@ -119,6 +119,9 @@ public class BoardController {
 	}
 	
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> ca3f297 (feat: board 수정 기능 추가)
 	
 	@RequestMapping(value = "/board/boardUpdateAction.do", method = RequestMethod.PUT)
 	@ResponseBody
@@ -136,6 +139,9 @@ public class BoardController {
 		
 		return callbackMsg;
 	}
+<<<<<<< HEAD
 =======
 >>>>>>> a7c3a38 (feat: board 삭제 추가)
+=======
+>>>>>>> ca3f297 (feat: board 수정 기능 추가)
 }
