@@ -81,4 +81,14 @@
     	 WHERE BOARD_TYPE = '1'
     	   AND BOARD_NUM = #{boardNum}
     </delete>
+    
+    <update id="boardUpdate" parameterType = "com.spring.board.vo.BoardVo">
+		UPDATE BOARD
+		   SET BOARD_Title = #{boardTitle},
+		       BOARD_COMMENT = #{boardComment},
+		       MODIFIER = 'SYSTEM',
+		       MODIFIED_TIME = TO_CHAR(SYSDATE)
+		 WHERE BOARD_TYPE = '1'
+		   AND BOARD_NUM = #{boardNum}
+    </update>
 </mapper>

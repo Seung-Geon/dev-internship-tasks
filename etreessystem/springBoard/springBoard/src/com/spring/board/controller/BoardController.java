@@ -118,4 +118,21 @@ public class BoardController {
 		return callbackMsg;
 	}
 	
+	
+	@RequestMapping(value = "/board/boardUpdateAction.do", method = RequestMethod.PUT)
+	@ResponseBody
+	public String boardModifyAction(Locale locale,@RequestBody BoardVo boardVo) throws Exception {
+		
+		HashMap<String, String> result = new HashMap<String, String>();
+		CommonUtil commonUtil = new CommonUtil();
+		
+		int resultCnt = boardService.boardUpdate(boardVo);
+		
+		result.put("success", (resultCnt > 0)?"Y":"N");
+		String callbackMsg = commonUtil.getJsonCallBackString(" ",result);
+		
+		System.out.println("callbackMsg::"+callbackMsg);
+		
+		return callbackMsg;
+	}
 }
