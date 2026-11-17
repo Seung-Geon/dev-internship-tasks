@@ -118,12 +118,6 @@ public class BoardController {
 		return callbackMsg;
 	}
 	
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> ca3f297 (feat: board 수정 기능 추가)
-	
-	
 	@RequestMapping(value = "/board/{boardType}/{boardNum}/boardModify.do", method = RequestMethod.GET)
 	public String boardModify(Locale locale, Model model
 			,@PathVariable("boardType")String boardType
@@ -155,9 +149,4 @@ public class BoardController {
 		
 		return callbackMsg;
 	}
-<<<<<<< HEAD
-=======
->>>>>>> a7c3a38 (feat: board 삭제 추가)
-=======
->>>>>>> ca3f297 (feat: board 수정 기능 추가)
 }

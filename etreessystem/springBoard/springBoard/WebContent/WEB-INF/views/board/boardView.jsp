@@ -15,35 +15,13 @@
 	
 	
 	$j(document).ready(function() {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 		$j("#boardDelete").on("click", function(){	
-			var pathVariable = getPathVariable();
-=======
-		$j("#boardDelete").on("click", function(){
->>>>>>> fc416f7 (fix: 수정 기능 다시 만들기)
-			var param = JSON.stringify(pathVariable);
-			//console.log(param);
-			//console.log(pageNo);
-=======
-		
-		$j("#boardDelete").on("click", function(){
 			
-=======
-		$j("#boardDelete").on("click", function(){	
->>>>>>> ca3f297 (feat: board 수정 기능 추가)
-			var pathVariable = getPathVariable();
 			var param = JSON.stringify(pathVariable);
-			var pageNo = getParameterByName('pageNo');
-<<<<<<< HEAD
-			console.log(pageNo);
->>>>>>> a7c3a38 (feat: board 삭제 추가)
-=======
-			//console.log(param);
-			//console.log(pageNo);
->>>>>>> ca3f297 (feat: board 수정 기능 추가)
 			
+			//console.log(param);
+			//console.log(pageNo);			
 			$j.ajax({
 				url: "/board/boardDeleteAction.do",
 				dataType: "json",
@@ -60,28 +38,12 @@
 				}
 			});
 		});
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> ca3f297 (feat: board 수정 기능 추가)
 		
 		$j("#boardModifyMode").on("click", function() {
 			location.href = "/board/"+pathVariable.boardType +"/" + pathVariable.boardNum + "/boardModify.do?pageNo=" + pageNo ;
-		})
+		});
 	});
 	
-<<<<<<< HEAD
-	
-<<<<<<< HEAD
-=======
-	});
-	
->>>>>>> a7c3a38 (feat: board 삭제 추가)
-=======
->>>>>>> ca3f297 (feat: board 수정 기능 추가)
-=======
-	n
->>>>>>> fc416f7 (fix: 수정 기능 다시 만들기)
 	function getParameterByName(name) {
         name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
         var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"), 
@@ -123,24 +85,8 @@
 	<tr>
 		<td align="right">
 			<a href="/board/boardList.do">List</a>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> ca3f297 (feat: board 수정 기능 추가)
-        	<input id="boardUpdateMode" type="button" value="����">
-        	<input id="boardUpdate" type="button" value="����" style="display:none;">
-=======
         	<input id="boardModifyMode" type="button" value="����">
->>>>>>> fc416f7 (fix: 수정 기능 다시 만들기)
-        	<input id="boardDelete" type="button" value="����">
-			
-<<<<<<< HEAD
-=======
-			<input id = "boardDelete" type="button" value = "����">
->>>>>>> a7c3a38 (feat: board 삭제 추가)
-=======
->>>>>>> ca3f297 (feat: board 수정 기능 추가)
+			<input id="boardDelete" type="button" value="����">
 		</td>
 	</tr>
 </table>	

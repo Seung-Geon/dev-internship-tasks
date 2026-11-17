@@ -18,15 +18,6 @@ public interface boardService {
 	public int boardInsert(BoardVo boardVo) throws Exception;
 
 	public int boardDelete(BoardVo boardVo) throws Exception;
-<<<<<<< HEAD
-<<<<<<< HEAD
 	
 	public int boardUpdate(BoardVo boardVo) throws Exception;
-=======
->>>>>>> a7c3a38 (feat: board 삭제 추가)
-=======
-	
-	public int boardUpdate(BoardVo boardVo) throws Exception;
->>>>>>> ca3f297 (feat: board 수정 기능 추가)
-
 }
