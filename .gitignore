@@ -1,1 +1,17 @@
 etreessystem/nexacro17_SetupStudio.exe
+
+
+# Eclipse / 일반적인 Java 빌드 출력 폴더
+/build/
+/bin/
+.settings/
+.project
+.classpath
+
+# IntelliJ IDEA (혹시 사용하시는 경우)
+.idea/
+*.iml
+
+# 운영체제 및 에디터 부산물
+.DS_Store
+Thumbs.db
