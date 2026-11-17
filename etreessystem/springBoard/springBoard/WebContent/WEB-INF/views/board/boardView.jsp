@@ -9,13 +9,21 @@
 </head>
 <script type="text/javascript">
 
+	var pathVariable = getPathVariable();
+	var pageNo = getParameterByName('pageNo');
+
+	
+	
 	$j(document).ready(function() {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 		$j("#boardDelete").on("click", function(){	
 			var pathVariable = getPathVariable();
+=======
+		$j("#boardDelete").on("click", function(){
+>>>>>>> fc416f7 (fix: ìˆ˜ì • ê¸°ëŠ¥ ë‹¤ì‹œ ë§Œë“¤ê¸°)
 			var param = JSON.stringify(pathVariable);
-			var pageNo = getParameterByName('pageNo');
 			//console.log(param);
 			//console.log(pageNo);
 =======
@@ -57,46 +65,12 @@
 =======
 >>>>>>> ca3f297 (feat: board ìˆ˜ì • ê¸°ëŠ¥ ì¶”ê°€)
 		
-		$j("#boardUpdateMode").on("click", function() {
-		    $j("#boardTitle").prop("disabled", false).focus();
-		    $j("#boardComment").prop("disabled", false);
-		    $j("#boardUpdateMode").hide();
-		    $j("#boardUpdate").show();
-		});
-		
-		
-		$j("#boardUpdate").on("click", function(){	
-			var boardVo = getPathVariable();
-			boardVo.boardTitle = $j("#boardTitle").val();
-			boardVo.boardComment = $j("#boardComment").val();
-			
-			var param = JSON.stringify(boardVo);
-			var pageNo = getParameterByName('pageNo');
-			//console.log(param);
-			//console.log(pageNo);
-			
-			$j.ajax({
-				url: "/board/boardUpdateAction.do",
-				dataType: "json",
-				type: "PUT",
-				data: param,
-				contentType: "application/json",
-				success: function(data,textStatus, jqXHR) {
-					alert("¼öÁ¤¿Ï·á");
-					alert("¸Þ½ÃÁö: " + data.success);
-					
-				    $j("#boardTitle").prop("disabled", true);
-				    $j("#boardComment").prop("disabled", true);
-				    $j("#boardUpdateMode").show();
-				    $j("#boardUpdate").hide();
-				},
-				error: function (jqXHR, textStatus, errorThrown) {
-					alert("½ÇÆÐ");
-				}
-			});
-		});
+		$j("#boardModifyMode").on("click", function() {
+			location.href = "/board/"+pathVariable.boardType +"/" + pathVariable.boardNum + "/boardModify.do?pageNo=" + pageNo ;
+		})
 	});
 	
+<<<<<<< HEAD
 	
 <<<<<<< HEAD
 =======
@@ -105,6 +79,9 @@
 >>>>>>> a7c3a38 (feat: board ì‚­ì œ ì¶”ê°€)
 =======
 >>>>>>> ca3f297 (feat: board ìˆ˜ì • ê¸°ëŠ¥ ì¶”ê°€)
+=======
+	n
+>>>>>>> fc416f7 (fix: ìˆ˜ì • ê¸°ëŠ¥ ë‹¤ì‹œ ë§Œë“¤ê¸°)
 	function getParameterByName(name) {
         name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
         var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"), 
@@ -130,15 +107,11 @@
 			<table border ="1">
 				<tr>
 					<td width="120" align="center">Title</td>
-					<td width="400">
-						<input name="boardTitle" id="boardTitle" type="text" value="${board.boardTitle}" disabled style="with: 98%;">
-					</td>
+					<td width="400">${board.boardTitle}</td>
 				</tr>
 				<tr>
 					<td height="300" align="center">Comment</td>
-					<td>
-						<textarea name="boardComment" id="boardComment"  rows="20" cols="55" disabled style="width: 98%;">${board.boardComment}</textarea>
-					</td>
+					<td>${board.boardComment}</td>
 				</tr>
 				<tr>
 					<td align="center">Writer</td>
@@ -152,10 +125,14 @@
 			<a href="/board/boardList.do">List</a>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> ca3f297 (feat: board ìˆ˜ì • ê¸°ëŠ¥ ì¶”ê°€)
         	<input id="boardUpdateMode" type="button" value="¼öÁ¤">
         	<input id="boardUpdate" type="button" value="ÀúÀå" style="display:none;">
+=======
+        	<input id="boardModifyMode" type="button" value="¼öÁ¤">
+>>>>>>> fc416f7 (fix: ìˆ˜ì • ê¸°ëŠ¥ ë‹¤ì‹œ ë§Œë“¤ê¸°)
         	<input id="boardDelete" type="button" value="»èÁ¦">
 			
 <<<<<<< HEAD

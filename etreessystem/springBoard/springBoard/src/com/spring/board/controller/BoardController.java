@@ -44,7 +44,7 @@ public class BoardController {
 		int totalCnt = 0;
 		
 		if(pageVo.getPageNo() == 0){
-			pageVo.setPageNo(page);;
+			pageVo.setPageNo(page);
 		}
 		
 		boardList = boardService.SelectBoardList(pageVo);
@@ -123,7 +123,23 @@ public class BoardController {
 =======
 >>>>>>> ca3f297 (feat: board 수정 기능 추가)
 	
-	@RequestMapping(value = "/board/boardUpdateAction.do", method = RequestMethod.PUT)
+	
+	@RequestMapping(value = "/board/{boardType}/{boardNum}/boardModify.do", method = RequestMethod.GET)
+	public String boardModify(Locale locale, Model model
+			,@PathVariable("boardType")String boardType
+			,@PathVariable("boardNum")int boardNum) throws Exception{
+		
+		BoardVo boardVo = new BoardVo();
+		boardVo = boardService.selectBoard(boardType,boardNum);
+		
+		model.addAttribute("boardType", boardType);
+		model.addAttribute("boardNum", boardNum);
+		model.addAttribute("board", boardVo);
+
+		return "board/boardModify";
+	}
+	
+	@RequestMapping(value = "/board/boardModifyAction.do", method = RequestMethod.PUT)
 	@ResponseBody
 	public String boardModifyAction(Locale locale,@RequestBody BoardVo boardVo) throws Exception {
 		

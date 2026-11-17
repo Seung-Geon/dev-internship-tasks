@@ -10,6 +10,7 @@
     </resultMap>
     
     <select id="boardList" parameterType="com.spring.board.vo.PageVo" resultMap="boardVo">
+    <!-- boardList -->
         SELECT 
 		  BOARD_TYPE
 		  ,BOARD_NUM
@@ -38,6 +39,7 @@
 				BOARD	
     </select>
     	
+    <!-- boardView-->
     <select id="boardView" parameterType="com.spring.board.vo.BoardVo" resultMap="boardVo">
     	SELECT
         	BOARD_TYPE
@@ -49,7 +51,8 @@
     	WHERE 	BOARD_TYPE = #{boardType}
     	AND 	BOARD_NUM  = #{boardNum}
     </select>	
-    
+
+    <!-- boardInsert -->
     <select id="boardInsert" parameterType="com.spring.board.vo.BoardVo">
         INSERT INTO 
         BOARD
@@ -76,6 +79,7 @@
         )
     </select>
     
+    <!-- boardDelete -->
     <delete id="boardDelete" parameterType = "com.spring.board.vo.BoardVo">
     	DELETE FROM BOARD
     	 WHERE BOARD_TYPE = '1'
@@ -86,6 +90,7 @@
 =======
 >>>>>>> ca3f297 (feat: board 수정 기능 추가)
     
+    <!-- boardUpdate -->
     <update id="boardUpdate" parameterType = "com.spring.board.vo.BoardVo">
 		UPDATE BOARD
 		   SET BOARD_Title = #{boardTitle},
