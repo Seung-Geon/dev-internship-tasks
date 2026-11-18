@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>list</title>
+<title>boardList</title>
 </head>
 <script type="text/javascript">
 

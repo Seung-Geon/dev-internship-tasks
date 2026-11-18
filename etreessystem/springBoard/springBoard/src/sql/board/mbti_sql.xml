@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mbti">
+    
+    <resultMap type="com.spring.board.vo.BoardVo" id="boardVo">
+    	<result property="boardType" 	column="BOARD_TYPE"/>
+    	<result property="boardNum" 	column="BOARD_NUM"/>
+    	<result property="boardTitle" 	column="BOARD_TITLE"/>
+    	<result property="boardComment" column="BOARD_COMMENT"/>
+    </resultMap>
+    
+    <select id="mbtiList" parameterType="com.spring.board.vo.PageVo" resultMap="boardVo">
+        SELECT 
+		  BOARD_TYPE
+		  ,BOARD_NUM
+		  ,BOARD_TITLE
+		  ,BOARD_COMMENT
+		  ,TOTAL_CNT
+		FROM 
+		(
+		  SELECT
+		      	 BOARD_TYPE
+			   , BOARD_NUM
+			   , BOARD_TITLE
+			   , BOARD_COMMENT
+		       , ROW_NUMBER() OVER(ORDER BY BOARD_TYPE ASC, BOARD_NUM DESC) AS NUMROW
+		       , COUNT(*) OVER() AS TOTAL_CNT
+			FROM BOARD
+		   WHERE BOARD_TYPE IN ('EI', 'IE', 'NS', 'SN', 'FT', 'TF', 'JP', 'PJ')
+		)
+		WHERE NUMROW BETWEEN (#{pageNo}-1)*10 + 1 AND (#{pageNo})*10
+    </select>
+
+    <select id="mbtiTotal" parameterType="Integer" resultType="Integer">
+		  SELECT
+		      	 COUNT(*) AS TOTAL_CNT
+		    FROM BOARD
+		   WHERE BOARD_TYPE IN ('EI', 'IE', 'NS', 'SN', 'FT', 'TF', 'JP', 'PJ')
+    </select>
+
+	<insert id="mbtiInsert" parameterType="com.spring.board.vo.BoardVo">
+		INSERT INTO BOARD
+               ( BOARD_TYPE
+               , BOARD_NUM
+               , BOARD_TITLE
+               , BOARD_COMMENT
+               , CREATOR
+               , CREATE_TIME
+               , MODIFIER
+               , MODIFIED_TIME
+               )
+        VALUES 
+             ( #{boardType}
+             , (SELECT TO_NUMBER(NVL(MAX(BOARD_NUM), 0)+1)
+	              FROM BOARD
+	             WHERE BOARD_TYPE = #{boardType})
+             , #{boardTitle}
+             , #{boardComment}
+             ,'SYSTEM'
+             , TO_CHAR(SYSDATE)
+             , 'SYSTEM'
+             , TO_CHAR(SYSDATE)
+             )
+	</insert>
+
+	<select id="mbtiTest" parameterType="com.spring.board.vo.PageVo" resultMap="boardVo">
+		SELECT
+		       BOARD_TYPE
+		     , BOARD_NUM
+		     , BOARD_TITLE
+		     , BOARD_COMMENT
+		 FROM BOARD
+		<where>
+			<choose>
+				<when test="pageNo == 1">
+					BOARD_TYPE IN ('EI', 'IE')
+				</when>
+				<when test="pageNo == 2">
+					BOARD_TYPE IN ('NS', 'SN')
+				</when>
+				<when test="pageNo == 3">
+					BOARD_TYPE IN ('FT', 'TF')
+				</when>
+				<when test="pageNo == 4">
+					BOARD_TYPE IN ('JP', 'PJ')
+				</when>
+			</choose>
+		</where>
+	</select>
+</mapper>
