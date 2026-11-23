@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="recruit">
+    
+	<resultMap type="com.spring.board.vo.RecruitVo" id ="recruitVo">
+		<result property="seq"			column="SEQ"/>
+		<result property="name"			column="NAME"/>
+		<result property="birth"		column="BIRTH"/>
+		<result property="gender"		column="GENDER"/>
+		<result property="phone"		column="PHONE"/>
+		<result property="email"		column="EMAIL"/>
+		<result property="addr"			column="ADDR"/>
+		<result property="location"		column="LOCATION"/>
+		<result property="workType"		column="WORK_TYPE"/>
+		<result property="submit"		column="SUBMIT"/>
+	</resultMap>
+	
+	<resultMap type="com.spring.board.vo.EducationVo" id ="educationVo">
+		<result property="eduSeq"		column="EDU_SEQ"/>
+		<result property="seq"			column="SEQ"/>
+		<result property="schoolName"	column="SCHOOL_NAME"/>
+		<result property="division"		column="DIVISION"/>
+		<result property="startPeriod"	column="START_PERIOD"/>
+		<result property="endPeriod"	column="END_PERIOD"/>
+		<result property="major"		column="MAJOR"/>
+		<result property="grade"		column="GRADE"/>
+		<result property="location"		column="LOCATION"/>
+	</resultMap>
+	
+	<resultMap type="com.spring.board.vo.CareerVo" id ="careerVo">
+		<result property="carSeq"		column="CAR_SEQ"/>
+		<result property="seq"			column="SEQ"/>
+		<result property="compName"		column="COMP_NAME"/>
+		<result property="location"		column="LOCATION"/>
+		<result property="startPeriod"	column="START_PERIOD"/>
+		<result property="endPeriod"	column="END_PERIOD"/>
+		<result property="task"			column="TASK"/>
+		<result property="salary"		column="SALARY"/>
+	</resultMap>
+	
+	<resultMap type="com.spring.board.vo.CertificateVo" id ="certificateVo">
+		<result property="certSeq"		column="CERT_SEQ"/>
+		<result property="seq"			column="SEQ"/>
+		<result property="qualifiName"	column="QUALIFI_NAME"/>
+		<result property="acquDate"		column="ACQU_DATE"/>
+		<result property="organizeName"	column="ORGANIZE_NAME"/>
+	</resultMap>
+	
+	<select id="recruitOne" parameterType="com.spring.board.vo.RecruitVo" resultMap="recruitVo">
+		SELECT
+		       SEQ
+		     , NAME
+		     , BIRTH
+		     , GENDER
+		     , PHONE
+		     , EMAIL 
+		     , ADDR
+		     , LOCATION
+		     , WORK_TYPE
+		     , SUBMIT
+		  FROM RECRUIT
+		 WHERE NAME = #{name} 
+		   AND PHONE = #{phone}
+	</select>
+	
+	<select id="educationList" parameterType="string" resultMap="educationVo">
+		SELECT
+		       EDU_SEQ
+		     , SEQ
+		     , SCHOOL_NAME
+		     , DIVISION
+		     , START_PERIOD
+		     , END_PERIOD
+		     , MAJOR
+		     , GRADE
+		     , LOCATION
+		  FROM EDUCATION
+		 WHERE SEQ = #{value}
+	</select>
+	
+	<select id="careerList" parameterType="com.spring.board.vo.RecruitVo" resultMap="careerVo">
+		SELECT
+		       CAR_SEQ
+		     , SEQ
+		     , COMP_NAME
+		     , LOCATION
+		     , START_PERIOD
+		     , END_PERIOD
+		     , TASK
+		     , SALARY
+		  FROM CAREER
+		 WHERE SEQ = #{value}
+	</select>
+	
+	<select id="certificateList" parameterType="com.spring.board.vo.RecruitVo" resultMap="certificateVo">
+		SELECT
+		       CERT_SEQ
+		     , SEQ
+		     , QUALIFI_NAME
+		     , ACQU_DATE
+		     , ORGANIZE_NAME
+		  FROM CERTIFICATE
+		 WHERE SEQ = #{value}
+	</select>
+	
+	<insert id="insertRecruit" parameterType="com.spring.board.vo.RecruitVo">
+		INSERT INTO RECRUIT (SEQ
+		                   , NAME
+		                   , BIRTH
+		                   , GENDER
+		                   , PHONE
+		                   , EMAIL
+		                   , ADDR
+		                   , LOCATION
+		                   , WORK_TYPE
+		                   , SUBMIT)
+		 VALUES (
+		         (SELECT TO_NUMBER(NVL(MAX(SEQ), 0) + 1) FROM RECRUIT)
+		       , #{name}
+		       , #{birth}
+		       , #{gender}
+		       , #{phone}
+		       , #{email}
+		       , #{addr}
+		       , #{location}
+		       , #{workType}
+		       , #{submit}
+		       )
+	</insert>
+	
+	<update id="updateRecruit" parameterType = "com.spring.board.vo.RecruitVo">
+		UPDATE RECRUIT
+		   SET NAME = #{name}
+		     , BIRTH = #{birth}
+		     , GENDER = #{gender}
+		     , PHONE = #{phone}
+		     , EMAIL = #{email}
+		     , ADDR = #{addr}
+	      	 , LOCATION = #{location}
+	      	 , WORK_TYPE = #{workType}
+		     , SUBMIT = #{submit}
+		 WHERE SEQ = #{seq}
+	</update>
+	
+	<delete id="deleteEducation" parameterType = "java.lang.String">
+		DELETE EDUCATION
+		 WHERE SEQ = #{seq}
+	</delete>
+	
+	<delete id="deleteCareer" parameterType = "java.lang.String">
+		DELETE CAREER
+		 WHERE SEQ = #{seq}
+	</delete>
+	
+	<delete id="deleteCertificate" parameterType = "java.lang.String">
+		DELETE CERTIFICATE
+		 WHERE SEQ = #{seq}
+	</delete>
+	
+	<insert id="insertEducation" parameterType="java.util.List">
+	    INSERT INTO EDUCATION (
+	                            EDU_SEQ
+	                          , SEQ
+	                          , SCHOOL_NAME
+	                          , DIVISION
+	                          , START_PERIOD
+	                          , END_PERIOD
+	                          , MAJOR
+	                          , GRADE
+	                          , LOCATION
+	                          )
+	    SELECT
+	           (SELECT NVL(MAX(EDU_SEQ), 0) FROM EDUCATION) + ROWNUM AS EDU_SEQ
+	         , A.SEQ
+	         , A.SCHOOL_NAME
+	         , A.DIVISION
+	         , A.START_PERIOD
+	         , A.END_PERIOD
+	         , A.MAJOR
+	         , A.GRADE
+	         , A.LOCATION
+	      FROM (
+	             <foreach collection="list" item="education" separator="UNION ALL">
+	                 SELECT
+	                        #{education.seq,         jdbcType=VARCHAR} AS SEQ
+	                      , #{education.schoolName,  jdbcType=VARCHAR} AS SCHOOL_NAME
+	                      , #{education.division,    jdbcType=VARCHAR} AS DIVISION
+	                      , #{education.startPeriod, jdbcType=VARCHAR} AS START_PERIOD
+	                      , #{education.endPeriod,   jdbcType=VARCHAR} AS END_PERIOD
+	                      , #{education.major,       jdbcType=VARCHAR} AS MAJOR
+	                      , #{education.grade,       jdbcType=VARCHAR} AS GRADE
+	                      , #{education.location,    jdbcType=VARCHAR} AS LOCATION
+	                   FROM DUAL
+	             </foreach>
+	           ) A
+	</insert>
+	
+	<insert id="insertCareer" parameterType = "java.util.List">
+		INSERT INTO CAREER (
+		                     CAR_SEQ
+		                   , SEQ
+		                   , COMP_NAME
+		                   , LOCATION
+		                   , START_PERIOD
+		                   , END_PERIOD
+		                   , TASK
+		                   )
+		SELECT
+		       (SELECT NVL(MAX(CAR_SEQ), 0) FROM CAREER) + ROWNUM AS CAR_SEQ
+		     , A.SEQ
+		     , A.COMP_NAME
+		     , A.LOCATION
+		     , A.START_PERIOD
+		     , A.END_PERIOD
+		     , A.TASK
+		  FROM (
+			   <foreach collection="list" item="career" separator="UNION ALL">
+	        		SELECT
+	                       #{career.seq,         jdbcType=VARCHAR} AS SEQ
+	                     , #{career.compName,    jdbcType=VARCHAR} AS COMP_NAME
+	                     , #{career.location,    jdbcType=VARCHAR} AS LOCATION
+	                     , #{career.startPeriod, jdbcType=VARCHAR} AS START_PERIOD
+	                     , #{career.endPeriod,   jdbcType=VARCHAR} AS END_PERIOD
+	                     , #{career.task,        jdbcType=VARCHAR} AS TASK
+	                  FROM DUAL
+			   </foreach>
+	           ) A
+	</insert>
+	
+	<insert id="insertCertificate" parameterType = "java.util.List">
+		INSERT INTO CERTIFICATE (
+		                          CERT_SEQ
+		                        , SEQ
+		                        , QUALIFI_NAME
+		                        , ACQU_DATE
+		                        , ORGANIZE_NAME
+		                        )
+		SELECT
+		       (SELECT NVL(MAX(CERT_SEQ), 0) FROM CERTIFICATE) + ROWNUM AS CERT_SEQ
+		     , A.SEQ
+		     , A.QUALIFI_NAME
+		     , A.ACQU_DATE
+		     , A.ORGANIZE_NAME
+		  FROM (
+			<foreach collection="list" item="certificate" separator="UNION ALL">
+	        		SELECT
+	                       #{certificate.seq,            jdbcType=VARCHAR} AS SEQ
+	                     , #{certificate.qualifiName,    jdbcType=VARCHAR} AS QUALIFI_NAME
+	                     , #{certificate.acquDate,       jdbcType=VARCHAR} AS ACQU_DATE
+	                     , #{certificate.organizeName,   jdbcType=VARCHAR} AS ORGANIZE_NAME
+	                  FROM DUAL
+			</foreach>
+	           ) A
+	</insert>
+	
+	
+</mapper>
