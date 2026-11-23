@@ -1,0 +1,2 @@
+[     115ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ http://localhost:8080/favicon.ico:1
+[   14041ms] [LOG] 이름, 전화번호 세션 저장 @ http://localhost:8080/recruit/login.do:65

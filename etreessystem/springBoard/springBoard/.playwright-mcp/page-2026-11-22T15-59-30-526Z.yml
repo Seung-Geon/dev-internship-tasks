@@ -1,0 +1,150 @@
+- generic [active] [ref=f2e1]:
+  - heading "입사 지원서" [level=1] [ref=f2e3]
+  - table [ref=f2e4]:
+    - rowgroup [ref=f2e5]:
+      - row [ref=f2e6]:
+        - cell [ref=f2e7]:
+          - table [ref=f2e8]:
+            - rowgroup [ref=f2e9]:
+              - row [ref=f2e10]:
+                - cell "이름" [ref=f2e11]
+                - cell [ref=f2e12]:
+                  - textbox [ref=f2e13]: 이승건
+                - cell "생년월일" [ref=f2e14]
+                - cell [ref=f2e15]:
+                  - textbox [ref=f2e16]: "000307"
+              - row [ref=f2e17]:
+                - cell "성별" [ref=f2e18]
+                - cell "남성" [ref=f2e19]:
+                  - combobox [ref=f2e20]:
+                    - option "미선택"
+                    - option "남성" [selected]
+                    - option "여성"
+                - cell "연락처" [ref=f2e21]
+                - cell [ref=f2e22]:
+                  - textbox [ref=f2e23]: "01038894605"
+              - row [ref=f2e24]:
+                - cell "email" [ref=f2e25]
+                - cell [ref=f2e26]:
+                  - textbox [ref=f2e27]: tmdrjs0040@gmail.com
+                - cell "주소" [ref=f2e28]
+                - cell [ref=f2e29]:
+                  - textbox [ref=f2e30]: 온달평강로 8
+              - row [ref=f2e31]:
+                - cell "희망근무지" [ref=f2e32]
+                - cell "서울" [ref=f2e33]:
+                  - combobox [ref=f2e34]:
+                    - option "미선택"
+                    - option "전국"
+                    - option "서울" [selected]
+                    - option "경기"
+                    - option "인천"
+                    - option "부산"
+                    - option "대구"
+                    - option "광주"
+                    - option "대전"
+                    - option "울산"
+                    - option "세종"
+                    - option "강원"
+                    - option "충북"
+                    - option "충남"
+                    - option "전북"
+                    - option "전남"
+                    - option "경북"
+                    - option "경남"
+                    - option "제주"
+                - cell "근무형태" [ref=f2e35]
+                - cell "정규직" [ref=f2e36]:
+                  - combobox [ref=f2e37]:
+                    - option "미선택"
+                    - option "정규직" [selected]
+                    - option "계약직"
+          - generic [ref=f2e38]:
+            - heading "학력" [level=2] [ref=f2e39]
+            - generic [ref=f2e40]:
+              - button "추가" [ref=f2e41]
+              - button "삭제" [ref=f2e42]
+            - table [ref=f2e43]:
+              - rowgroup [ref=f2e44]:
+                - row [ref=f2e45]:
+                  - cell [ref=f2e46]
+                  - cell "재학기간" [ref=f2e47]
+                  - cell "구분" [ref=f2e48]
+                  - cell "학교명(소재지)" [ref=f2e49]
+                  - cell "전공" [ref=f2e50]
+                  - cell "학점" [ref=f2e51]
+                - row [ref=f2e52]:
+                  - cell [ref=f2e53]:
+                    - checkbox [ref=f2e54]
+                  - cell [ref=f2e55]:
+                    - textbox [ref=f2e56]: "2019.03"
+                    - text: "~"
+                    - textbox [ref=f2e57]: "2026.08"
+                  - cell "졸업" [ref=f2e58]:
+                    - combobox [ref=f2e59]:
+                      - option "미선택"
+                      - option "졸업" [selected]
+                      - option "재학"
+                      - option "중퇴"
+                  - cell [ref=f2e60]:
+                    - textbox [ref=f2e61]: 한기대
+                    - combobox [ref=f2e62]:
+                      - option "미선택"
+                      - option "서울" [selected]
+                      - option "경기"
+                      - option "인천"
+                      - option "부산"
+                      - option "대구"
+                      - option "광주"
+                      - option "대전"
+                      - option "울산"
+                      - option "세종"
+                      - option "강원"
+                      - option "충북"
+                      - option "충남"
+                      - option "전북"
+                      - option "전남"
+                      - option "경북"
+                      - option "경남"
+                      - option "제주"
+                  - cell [ref=f2e63]:
+                    - textbox [ref=f2e64]: 컴퓨터공학
+                  - cell [ref=f2e65]:
+                    - textbox [ref=f2e66]: "3.58"
+          - generic [ref=f2e67]:
+            - heading "경력" [level=2] [ref=f2e68]
+            - generic [ref=f2e69]:
+              - button "추가" [ref=f2e70]
+              - button "삭제" [ref=f2e71]
+            - table [ref=f2e72]:
+              - rowgroup [ref=f2e73]:
+                - row [ref=f2e74]:
+                  - cell [ref=f2e75]
+                  - cell "근무기간" [ref=f2e76]
+                  - cell "회사명" [ref=f2e77]
+                  - cell "부서/직급/직책" [ref=f2e78]
+                  - cell "지역" [ref=f2e79]
+          - generic [ref=f2e80]:
+            - heading "자격증" [level=2] [ref=f2e81]
+            - generic [ref=f2e82]:
+              - button "추가" [ref=f2e83]
+              - button "삭제" [ref=f2e84]
+            - table [ref=f2e85]:
+              - rowgroup [ref=f2e86]:
+                - row [ref=f2e87]:
+                  - cell [ref=f2e88]
+                  - cell "자격증명" [ref=f2e89]
+                  - cell "취득일" [ref=f2e90]
+                  - cell "발행처" [ref=f2e91]
+                - row [ref=f2e92]:
+                  - cell [ref=f2e93]:
+                    - checkbox [ref=f2e94]
+                  - cell [ref=f2e95]:
+                    - textbox [ref=f2e96]: 정보처리기사
+                  - cell [ref=f2e97]:
+                    - textbox [ref=f2e98]: "2024.09"
+                  - cell [ref=f2e99]:
+                    - textbox [ref=f2e100]: 정처기발행처
+  - generic [ref=f2e101]:
+    - button "저장" [ref=f2e102]
+    - button "제출" [ref=f2e103]

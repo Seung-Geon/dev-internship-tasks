@@ -1,0 +1,17 @@
+- table [ref=e2]:
+  - rowgroup [ref=e3]:
+    - row [ref=e4]:
+      - cell [ref=e5]:
+        - table [ref=e6]:
+          - rowgroup [ref=e7]:
+            - row [ref=e8]:
+              - cell "이름" [ref=e9]
+              - cell [ref=e10]:
+                - textbox [ref=e11]
+            - row [ref=e12]:
+              - cell "휴대폰번호" [ref=e13]
+              - cell [ref=e14]:
+                - textbox "-없이 입력해주세요" [ref=e15]
+    - row [ref=e16]:
+      - cell [ref=e17]:
+        - button "입사지원" [ref=e18]
